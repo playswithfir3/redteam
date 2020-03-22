@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #################################################
-# Created by @jgaudard  :: I don't twitter much 
+# Created by @playswithfir3  :: I don't twitter much 
 # Used wmic to execute an exe payload.
 # Created: 18 June 2016    Edited: 23 June 2016
 # Version 3.0
