@@ -1,0 +1,20 @@
+#!/usr/bin/expect -f
+
+# usage: 
+#       ./script ip/host username password
+
+set host [lindex $argv 0]
+set user [lindex $argv 1]
+set pass [lindex $argv 2]
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no $user@$host
+expect "*: "
+send "$pass\r"
+expect "$ "
+send "mkdir ~/.ssh\r"
+expect "$ "
+send "echo 'INSERT SSH KEY HERE' > ~/.ssh/authorized_keys\r"
+expect "$ "
+send "chattr +i ~/.ssh/authorized_keys\r"
+expect "$ "
+send "exit\r"
